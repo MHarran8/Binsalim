@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>بن سالم للمقاولات العامة</title>
+  <meta name="description" content="بن سالم للمقاولات العامة - تأجير المولدات الكهربائية والمعدات الثقيلة" />
+  <style>
+    :root { --w: 1100px; }
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:#0b0f14; color:#e9eef6;}
+    a{color:inherit}
+    .wrap{max-width:var(--w); margin:0 auto; padding:24px;}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px; padding:14px 0;}
+    .brand{font-weight:800; letter-spacing:.2px}
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; background:#1f6feb; text-decoration:none; font-weight:700}
+    .hero{padding:56px 0 28px; display:grid; gap:18px}
+    .kicker{opacity:.8}
+    h1{margin:0; font-size:34px; line-height:1.2}
+    .sub{opacity:.9; font-size:16px; line-height:1.8; max-width:720px}
+    .grid{display:grid; grid-template-columns:1fr; gap:16px; margin:24px 0}
+    @media(min-width:860px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{background:#111826; border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px}
+    .card h2{margin:0 0 10px; font-size:18px}
+    .list{margin:0; padding:0 18px; line-height:2}
+    .footer{opacity:.7; padding:26px 0; border-top:1px solid rgba(255,255,255,.08); margin-top:26px; font-size:13px}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; font-size:12px; opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">بن سالم للمقاولات العامة</div>
+      <a class="btn" href="#contact">تواصل معنا</a>
+    </div>
+
+    <section class="hero">
+      <div class="pill">تأجير المولدات الكهربائية والمعدات الثقيلة</div>
+      <h1>حلول تأجير موثوقة للمشاريع والورش والمواقع</h1>
+      <p class="sub">
+        نقدم خدمات تأجير المولدات الكهربائية (وباقي المعدات حسب الحاجة) لدعم أعمالكم في المواقع المختلفة.
+        هدفنا توفير تجهيزات جاهزة للعمل مع استجابة سريعة ووضوح كامل في الشروط.
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn" href="#services">عرض الخدمات</a>
+        <a class="btn" style="background:#243044" href="#about">من نحن</a>
+      </div>
+    </section>
+
+    <section class="grid" id="about">
+      <div class="card">
+        <h2>من نحن</h2>
+        <p style="margin:0; line-height:1.9; opacity:.92">
+          بن سالم للمقاولات العامة — نشاطنا الرئيسي تأجير المولدات الكهربائية والمعدات الثقيلة لدعم المشاريع
+          بما يتوافق مع متطلبات التشغيل والسلامة.
+        </p>
+      </div>
+
+      <div class="card" id="services">
+        <h2>الخدمات</h2>
+        <ul class="list">
+          <li>تأجير المولدات الكهربائية</li>
+          <!-- أضف خدمات لاحقًا هنا -->
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>لماذا نحن</h2>
+        <ul class="list">
+          <li>التزام بالمواعيد والجاهزية</li>
+          <li>وضوح في التسعير والشروط</li>
+          <li>دعم واستجابة حسب الحاجة</li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact">
+        <h2>تواصل معنا</h2>
+        <p style="margin:0; line-height:2; opacity:.92">
+          جوال/واتساب: <strong>05XXXXXXXX</strong><br/>
+          البريد: <strong>info@binsalim-sa.com</strong><br/>
+          الموقع: المملكة العربية السعودية
+        </p>
+        <p style="margin:12px 0 0; opacity:.75; font-size:13px">
+          (عدّل رقم الجوال والإيميل حسب بياناتك)
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="y"></span> بن سالم للمقاولات العامة — جميع الحقوق محفوظة
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
