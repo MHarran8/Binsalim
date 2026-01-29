@@ -3,92 +3,554 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بن سالم للمقاولات العامة</title>
-  <meta name="description" content="بن سالم للمقاولات العامة - تأجير المولدات الكهربائية والمعدات الثقيلة" />
+  <title>بن سالم للمقاولات العامة | تأجير المولدات الكهربائية والمعدات الثقيلة</title>
+  <meta name="description" content="بن سالم للمقاولات العامة - تأجير المولدات الكهربائية والمعدات الثقيلة للمشاريع والورش والمواقع داخل المملكة العربية السعودية." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Arabic font (free) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root { --w: 1100px; }
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:#0b0f14; color:#e9eef6;}
-    a{color:inherit}
-    .wrap{max-width:var(--w); margin:0 auto; padding:24px;}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px; padding:14px 0;}
-    .brand{font-weight:800; letter-spacing:.2px}
-    .btn{display:inline-block; padding:12px 16px; border-radius:12px; background:#1f6feb; text-decoration:none; font-weight:700}
-    .hero{padding:56px 0 28px; display:grid; gap:18px}
-    .kicker{opacity:.8}
-    h1{margin:0; font-size:34px; line-height:1.2}
-    .sub{opacity:.9; font-size:16px; line-height:1.8; max-width:720px}
-    .grid{display:grid; grid-template-columns:1fr; gap:16px; margin:24px 0}
-    @media(min-width:860px){ .grid{grid-template-columns:1fr 1fr} }
-    .card{background:#111826; border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px}
-    .card h2{margin:0 0 10px; font-size:18px}
-    .list{margin:0; padding:0 18px; line-height:2}
-    .footer{opacity:.7; padding:26px 0; border-top:1px solid rgba(255,255,255,.08); margin-top:26px; font-size:13px}
-    .pill{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; font-size:12px; opacity:.9}
+    :root{
+      --bg: #070b12;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.12);
+      --txt: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.6);
+      --brand: #2f6bff;
+      --brand2:#22c55e;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --r: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 500px at 10% 0%, rgba(47,107,255,.28), transparent 55%),
+                  radial-gradient(800px 480px at 90% 15%, rgba(34,197,94,.20), transparent 55%),
+                  radial-gradient(700px 420px at 50% 120%, rgba(47,107,255,.18), transparent 60%),
+                  var(--bg);
+      color: var(--txt);
+      line-height:1.75;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding: 0 18px}
+    .blur{
+      position:fixed; inset:-40px;
+      pointer-events:none;
+      background: linear-gradient(to bottom, rgba(7,11,18,.35), rgba(7,11,18,.85) 40%, rgba(7,11,18,1));
+      z-index:-1;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(7,11,18,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+        linear-gradient(135deg, rgba(47,107,255,.95), rgba(34,197,94,.85));
+      box-shadow: 0 10px 30px rgba(47,107,255,.25);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .brand b{font-weight:800}
+    .brand small{display:block; color:var(--muted2); margin-top:2px; font-weight:600}
+
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:14px; align-items:center;
+      color: var(--muted);
+      font-weight:700;
+    }
+    nav a{padding:8px 10px; border-radius:12px}
+    nav a:hover{background: rgba(255,255,255,.06); color: var(--txt)}
+    .actions{display:flex; gap:10px; align-items:center}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--txt);
+      font-weight:800;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.085); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(47,107,255,.78));
+      border-color: rgba(47,107,255,.5);
+      box-shadow: 0 16px 50px rgba(47,107,255,.22);
+    }
+    .btn.whatsapp{
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.72));
+      border-color: rgba(34,197,94,.5);
+      box-shadow: 0 16px 50px rgba(34,197,94,.18);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 56px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:800;
+      width: fit-content;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: 44px;
+      line-height: 1.18;
+      letter-spacing: -.2px;
+    }
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-weight:600;
+      font-size: 17px;
+      max-width: 58ch;
+    }
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+
+    .panel{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(420px 260px at 70% 10%, rgba(47,107,255,.20), transparent 60%),
+                  radial-gradient(420px 260px at 20% 90%, rgba(34,197,94,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-card > *{position:relative}
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .stat{
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{color: var(--muted2); font-weight:700; font-size:13px}
+
+    .mini{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-weight:700;
+    }
+    .mini ul{margin:8px 0 0; padding:0 18px}
+    .mini li{margin:4px 0}
+
+    /* Sections */
+    section{padding: 18px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 18px 0 10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.2px;
+    }
+    .section-title p{
+      margin:0;
+      color: var(--muted2);
+      font-weight:700;
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 6;
+      padding: 16px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.065);
+      border-color: rgba(255,255,255,.16);
+    }
+    .card h3{margin:0 0 6px; font-size: 18px}
+    .card p{margin:0; color: var(--muted); font-weight:650}
+    .icon{
+      width:40px; height:40px; border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+
+    /* CTA band */
+    .cta{
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      background: radial-gradient(600px 240px at 10% 30%, rgba(47,107,255,.22), transparent 60%),
+                  radial-gradient(600px 240px at 90% 60%, rgba(34,197,94,.18), transparent 60%),
+                  rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
+    .cta b{font-size:18px}
+    .cta span{display:block; color: var(--muted); font-weight:650}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+    }
+    .box{
+      padding: 16px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px}
+    .kv{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight:750;
+    }
+    .kv code{
+      font-family: inherit;
+      color: var(--txt);
+      background: transparent;
+      padding:0;
+      font-weight: 800;
+    }
+
+    footer{
+      padding: 26px 0 34px;
+      color: var(--muted2);
+      font-weight:700;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr}
+      .contact{grid-template-columns:1fr}
+      .brand{min-width:auto}
+      nav ul{display:none}
+      h1{font-size: 34px}
+    }
+    @media (max-width: 520px){
+      .stats{grid-template-columns: 1fr}
+      .card{grid-column: span 12}
+    }
+
+    /* Small helpers */
+    .muted{color: var(--muted)}
+    .sep{height:1px; background: rgba(255,255,255,.08); margin: 14px 0}
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">بن سالم للمقاولات العامة</div>
-      <a class="btn" href="#contact">تواصل معنا</a>
-    </div>
+  <div class="blur"></div>
 
-    <section class="hero">
-      <div class="pill">تأجير المولدات الكهربائية والمعدات الثقيلة</div>
-      <h1>حلول تأجير موثوقة للمشاريع والورش والمواقع</h1>
-      <p class="sub">
-        نقدم خدمات تأجير المولدات الكهربائية (وباقي المعدات حسب الحاجة) لدعم أعمالكم في المواقع المختلفة.
-        هدفنا توفير تجهيزات جاهزة للعمل مع استجابة سريعة ووضوح كامل في الشروط.
-      </p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn" href="#services">عرض الخدمات</a>
-        <a class="btn" style="background:#243044" href="#about">من نحن</a>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <b>بن سالم للمقاولات العامة</b>
+            <small>تأجير المولدات الكهربائية والمعدات الثقيلة</small>
+          </div>
+        </div>
+
+        <nav aria-label="التنقل">
+          <ul>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#why">لماذا نحن</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="#services">عرض الخدمات</a>
+          <a class="btn primary" href="#contact">تواصل معنا</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="panel hero-card">
+          <div class="chip">جاهزية للمشاريع والورش والمواقع داخل المملكة</div>
+          <h1>حلول تأجير موثوقة لتشغيل أعمالك بدون تعطّل</h1>
+          <p class="lead">
+            نوفر خدمات تأجير <b>المولدات الكهربائية</b> (وباقي المعدات حسب الحاجة) لدعم مشاريعكم في المواقع المختلفة.
+            التزام بالمواعيد، وضوح في الشروط، واستجابة حسب الحاجة.
+          </p>
+
+          <div class="hero-cta">
+            <!-- ✅ عدّل رقم الواتساب هنا -->
+            <a class="btn whatsapp" href="https://wa.me/9665XXXXXXXX?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D8%A8%D8%BA%D9%89%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1%20%D9%85%D9%88%D9%84%D8%AF">واتساب مباشر</a>
+            <a class="btn primary" href="#contact">طلب عرض سعر</a>
+            <a class="btn" href="#about">تعرف علينا</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <b>جاهزية تشغيل</b>
+              <span>تجهيزات مناسبة للمواقع</span>
+            </div>
+            <div class="stat">
+              <b>استجابة حسب الحاجة</b>
+              <span>تنسيق سريع ومرن</span>
+            </div>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="mini">
+            <div style="font-weight:900; color: var(--txt);">مناسب لـ:</div>
+            <ul>
+              <li>المشاريع الإنشائية والمقاولات</li>
+              <li>الورش والمستودعات</li>
+              <li>المواقع المؤقتة وأعمال التشغيل</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Side card -->
+        <div class="panel hero-card" style="padding:18px;">
+          <div class="chip">خدمة رئيسية</div>
+          <h2 style="margin:10px 0 6px; font-size:22px; line-height:1.3;">تأجير المولدات الكهربائية</h2>
+          <p class="muted" style="margin:0;">
+            توفير مولدات حسب الحاجة لدعم التشغيل في المواقع المختلفة مع ترتيب واضح للتسليم والاستلام.
+          </p>
+
+          <div class="sep"></div>
+
+          <div class="mini">
+            <div style="font-weight:900; color: var(--txt);">تشمل الخدمة:</div>
+            <ul>
+              <li>تأجير حسب المدة (يومي/أسبوعي/شهري)</li>
+              <li>تنسيق التسليم حسب الموقع</li>
+              <li>دعم لتحديد الاحتياج المناسب</li>
+            </ul>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="row">
+            <a class="btn primary" href="#services">تفاصيل الخدمات</a>
+            <a class="btn" href="#why">لماذا نحن</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="grid" id="about">
-      <div class="card">
-        <h2>من نحن</h2>
-        <p style="margin:0; line-height:1.9; opacity:.92">
-          بن سالم للمقاولات العامة — نشاطنا الرئيسي تأجير المولدات الكهربائية والمعدات الثقيلة لدعم المشاريع
-          بما يتوافق مع متطلبات التشغيل والسلامة.
-        </p>
-      </div>
-
-      <div class="card" id="services">
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
         <h2>الخدمات</h2>
-        <ul class="list">
-          <li>تأجير المولدات الكهربائية</li>
-          <!-- أضف خدمات لاحقًا هنا -->
-        </ul>
+        <p>نركّز على الخدمة الأساسية الآن — وتقدر توسّع لاحقًا</p>
       </div>
 
-      <div class="card">
-        <h2>لماذا نحن</h2>
-        <ul class="list">
-          <li>التزام بالمواعيد والجاهزية</li>
-          <li>وضوح في التسعير والشروط</li>
-          <li>دعم واستجابة حسب الحاجة</li>
-        </ul>
-      </div>
+      <div class="grid">
+        <div class="card" style="grid-column: span 12;">
+          <div class="icon">⚡</div>
+          <h3>تأجير المولدات الكهربائية</h3>
+          <p>حلول تأجير مرنة للمشاريع والورش والمواقع حسب الحاجة، مع ترتيب واضح للتسليم والمتطلبات.</p>
+        </div>
 
-      <div class="card" id="contact">
-        <h2>تواصل معنا</h2>
-        <p style="margin:0; line-height:2; opacity:.92">
-          جوال/واتساب: <strong>05XXXXXXXX</strong><br/>
-          البريد: <strong>info@binsalim-sa.com</strong><br/>
-          الموقع: المملكة العربية السعودية
-        </p>
-        <p style="margin:12px 0 0; opacity:.75; font-size:13px">
-          (عدّل رقم الجوال والإيميل حسب بياناتك)
-        </p>
+        <!-- أضف خدمات لاحقًا (فقط انسخ كرت وغيّر النص)
+        <div class="card">
+          <div class="icon">🏗️</div>
+          <h3>تأجير معدات ثقيلة</h3>
+          <p>توفير معدات حسب توفرها واحتياج الموقع.</p>
+        </div>
+        -->
       </div>
     </section>
 
-    <div class="footer">
-      © <span id="y"></span> بن سالم للمقاولات العامة — جميع الحقوق محفوظة
-    </div>
-  </div>
+    <!-- ABOUT + WHY -->
+    <section id="about">
+      <div class="section-title">
+        <h2>من نحن</h2>
+        <p>هوية واضحة وانطباع مؤسسي</p>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="grid-column: span 7;">
+          <div class="icon">🏢</div>
+          <h3>بن سالم للمقاولات العامة</h3>
+          <p>
+            نشاطنا الرئيسي تأجير المولدات الكهربائية والمعدات الثقيلة لدعم المشاريع بما يتوافق مع متطلبات التشغيل والسلامة.
+            نهدف لتقديم خدمة عملية وواضحة تساعدك تنجز شغلك بدون تعطّل.
+          </p>
+        </div>
+
+        <div class="card" id="why" style="grid-column: span 5;">
+          <div class="icon">✅</div>
+          <h3>لماذا نحن</h3>
+          <p class="muted" style="margin-bottom:10px;">نقاط قوة بسيطة لكنها مهمة:</p>
+          <ul style="margin:0; padding:0 18px; color: var(--muted); font-weight:750; line-height:2;">
+            <li>التزام بالمواعيد والجاهزية</li>
+            <li>وضوح في الشروط والتسعير</li>
+            <li>دعم واستجابة حسب الحاجة</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta">
+        <div>
+          <b>جاهز تبدأ؟</b>
+          <span>ارسل موقعك ومدة التأجير ونوع الاحتياج — ونرد عليك بسرعة.</span>
+        </div>
+        <div class="row">
+          <a class="btn whatsapp" href="https://wa.me/9665XXXXXXXX?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D8%A8%D8%BA%D9%89%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1%20%D9%85%D9%88%D9%84%D8%AF">واتساب</a>
+          <a class="btn primary" href="#contact">تواصل الآن</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>تواصل معنا</h2>
+        <p>ضع بياناتك الحقيقية هنا وستظهر بشكل احترافي</p>
+      </div>
+
+      <div class="contact">
+        <div class="box">
+          <h3 style="margin:0 0 8px;">قنوات التواصل</h3>
+          <div class="kv">
+            <span>جوال/واتساب</span>
+            <!-- ✅ عدّل الرقم هنا -->
+            <code>05XXXXXXXX</code>
+          </div>
+          <div class="kv">
+            <span>البريد</span>
+            <!-- ✅ عدّل الإيميل هنا -->
+            <code>info@binsalim-sa.com</code>
+          </div>
+          <div class="kv">
+            <span>الموقع</span>
+            <code>المملكة العربية السعودية</code>
+          </div>
+
+          <div class="row">
+            <!-- ✅ عدّل روابط واتساب + ايميل -->
+            <a class="btn whatsapp" href="https://wa.me/9665XXXXXXXX">فتح واتساب</a>
+            <a class="btn primary" href="mailto:info@binsalim-sa.com?subject=%D8%B7%D9%84%D8%A8%20%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1%20-%20%D8%A8%D9%86%20%D8%B3%D8%A7%D9%84%D9%85">إرسال بريد</a>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0; font-weight:700; font-size:13px;">
+            ملاحظة: اكتب رقم الواتساب بصيغة دولية داخل الرابط (966 بدون صفر) مثل: 9665XXXXXXXX
+          </p>
+        </div>
+
+        <div class="box">
+          <h3 style="margin:0 0 8px;">طلب سريع</h3>
+          <p class="muted" style="margin:0;">
+            لإرسال طلب واضح، اكتب: <b>الموقع</b> + <b>مدة التأجير</b> + <b>نوع الاستخدام</b>.
+          </p>
+          <div class="sep"></div>
+          <div class="mini">
+            <div style="font-weight:900; color: var(--txt);">مثال رسالة واتساب:</div>
+            <ul>
+              <li>الموقع: الرياض - حي ...</li>
+              <li>المدة: أسبوع / شهر</li>
+              <li>الاحتياج: مولد لتشغيل ورشة / موقع</li>
+            </ul>
+          </div>
+          <div class="sep"></div>
+          <a class="btn primary" href="#top">رجوع للأعلى</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container" style="padding:0;">
+        © <span id="y"></span> بن سالم للمقاولات العامة — جميع الحقوق محفوظة
+      </div>
+    </footer>
+  </main>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
